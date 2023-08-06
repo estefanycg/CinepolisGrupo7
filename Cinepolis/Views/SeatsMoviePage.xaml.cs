@@ -14,6 +14,8 @@ namespace Cinepolis.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeatsMoviePage : ContentPage
     {
+
+        public bool statusinvitado = InvitadoStatus.Value;
         private List<string> asientosSeleccionados = new List<string>();
         public Asientos asientos { get; set; }
         public int idHorario;
@@ -170,7 +172,23 @@ namespace Cinepolis.Views
 
         private void SiguienteClicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new DatosPersonales(asientosSeleccionados, idHorario, pelicula, total));
+            if (statusinvitado == true)
+            {
+                DisplayAlert("Iniciar Sesion", "Debe iniciar sesión para acceder.", "Aceptar");
+                 Navigation.PushAsync(new SignInPage());
+            }
+            else
+            {
+                if (asientosSeleccionados.Count == 0)
+                {
+                     DisplayAlert("Advertencia", "Debes seleccionar al menos un asiento.", "Aceptar");
+                }
+                else
+                {
+                    Navigation.PushAsync(new DatosPersonales(asientosSeleccionados, idHorario, pelicula, total));
+                }
+            }
+
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using Cinepolis.Views;
+﻿using Cinepolis.ModelViews;
+using Cinepolis.Views;
 using System;
 using Xamarin.Forms;
 
@@ -26,9 +27,9 @@ namespace Cinepolis.Views
 
         private async void CarteleraButtonClicked(object sender, EventArgs e)
         {
-    
-            Application.Current.MainPage = new AppShell();
-            
+            InvitadoStatus.Value = true;
+            await Navigation.PushAsync(new Location());
+
         }
     }
 }
