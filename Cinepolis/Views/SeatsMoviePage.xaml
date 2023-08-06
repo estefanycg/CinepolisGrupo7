@@ -5,31 +5,27 @@
         <StackLayout Spacing="10" VerticalOptions="StartAndExpand">
             <!-- Columna de la imagen -->
             <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Spacing="5" Margin="20,20,20,0">
-                <Image Source="Barbie.jpg" Aspect="AspectFit" HeightRequest="200" />
+                <Image Source="{Binding imagen}" Aspect="AspectFit" HeightRequest="200" />
                 <!-- Ajusta el HeightRequest según tus necesidades -->
 
                 <!-- Columna de la información -->
                 <StackLayout VerticalOptions="StartAndExpand" Spacing="2">
-                    <Label Text="Nombre de la película" FontAttributes="Bold" FontSize="18"/>
+                    <Label Text="{Binding titulo}" FontAttributes="Bold" FontSize="18"/>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Ciudad:" FontAttributes="Bold" FontSize="15" />
-                        <Label Text="Nueva York" />
+                        <Label Text="Duración:" FontAttributes="Bold" FontSize="15" />
+                        <Label Text="{Binding duracion}" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Fecha:" FontAttributes="Bold" FontSize="15" />
-                        <Label Text="Sábado, 29 julio 2023" />
+                        <Label Text="Genero:" FontAttributes="Bold" FontSize="15" />
+                        <Label Text="{Binding genero}" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Hora:" FontAttributes="Bold" FontSize="15" />
-                        <Label Text="5:00 PM" />
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Sala:" FontAttributes="Bold" FontSize="15" />
-                        <Label Text="1" />
+                        <Label Text="Clasificación:" FontAttributes="Bold" FontSize="15" />
+                        <Label Text="{Binding clasificacion}" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Precio:" FontAttributes="Bold" FontSize="15" />
-                        <Label Text="Ejemplo precio" />
+                        <Label Text="{Binding precio}" />
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
@@ -591,7 +587,7 @@
 
                 <!-- Segundo label alineado a la derecha -->
                 <Label Grid.Column="1"
-                       Text="140" 
+                       Text="{Binding precio}"
                        FontAttributes="Bold"
                        TextColor="#3b5998"
                        VerticalOptions="Center" 

@@ -19,7 +19,14 @@ namespace Cinepolis.Views
         public int idHorario;
         public int pelicula;
         public float total;
-        public float precio;
+        public float precio { get; set; }
+        public string titulo { get; set; }
+        public string duracion { get; set; }
+        public string genero { get; set; }
+        public string clasificacion { get; set; }
+        public string imagen { get; set; }
+
+
 
         public SeatsMoviePage(int idhorario, int idpelicula)
         {
@@ -99,6 +106,12 @@ namespace Cinepolis.Views
                         if (data?.data?.pelicula?.precio != null)
                         {
                             precio = data?.data?.pelicula?.precio;
+                            titulo = data?.data?.pelicula?.titulo;
+                            duracion = data?.data?.pelicula?.duracion;
+                            genero = data?.data?.pelicula?.genero;
+                            clasificacion = data?.data?.pelicula?.clasificacion;
+                            imagen = "http://64.227.10.233" + data.data.pelicula.imagen;
+
                         }
                     }
 
